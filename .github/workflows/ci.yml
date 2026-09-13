@@ -1,0 +1,15 @@
+name: Lifecycle fixture CI
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  fixture:
+    name: Lifecycle fixture gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node --test
